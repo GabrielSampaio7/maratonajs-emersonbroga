@@ -9,9 +9,11 @@ Projeto da ***Maratona JS 3***.
 O conteúdo desse repositório, faz parte do material didático do curso "Dev Sem Fronteiras", 
 também conhecido como "Curso de React/NodeJS" do [Emerson Brôga Dev](https://emersonbroga.com/instagram).
 
-<p align="left">
-Feito com <img src="https://img.icons8.com/color/48/000000/like--v3.png" width="20" height="20" /> usando <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" width="20" height="20"/>. Esse repositório e o video têm fins educativos.
-</p>
+# Sobre o Projeto
+
+O projeto usa as tecnologias HTML, CSS, JS e React.js. É um projeto simples onde foi criado um jogo para que o usuário possa testar sua digitação. Existe um arquivo dentro do projeto para poder adicionar mais palavras e tornar a aleatoriedade mais assertiva. 
+
+<img src="git-src/Screenshot_1.png">
 
 
 ##
