@@ -10,7 +10,7 @@ const getWord = () => {
 }
 
 const isValidKey = (key, word) => {
-    if(!word) return null;
+    if (!word) return null;
 
     const result = word.split('').includes(key);
     return result;
@@ -34,14 +34,28 @@ const Word = ({ word, validKeys }) => {
 const App = () => {
     const [typedKeys, setTypedKeys] = useState([]);
     const [validKeys, setValidKeys] = useState([]);
+    const [completedWords, setCompletedWords] = useState([]);
     const [word, setWord] = useState('');
-
-    //
-    //console.log('word', getWord());
 
     useEffect(() => {
         setWord(getWord)
     }, []);
+
+    useEffect(() => {
+        const wordFromValidKeys = validKeys.join('').toLowerCase();
+        if (word && word === wordFromValidKeys) {
+
+            let newWord = null;
+            do {
+                newWord = getWord();
+            } while (completedWords.includes(newWord))
+
+            setWord(newWord);
+            setValidKeys([]);
+            setCompletedWords((prev) => [...prev, word]);
+
+        }
+    }, [word, validKeys, completedWords])
 
 
     const handleKeyDown = (e) => {
@@ -50,7 +64,7 @@ const App = () => {
 
         setTypedKeys((prev) => [...prev, key].slice(MAX_TYPED_KEYS * -1));
 
-        if(isValidKey(key, word)){
+        if (isValidKey(key, word)) {
             setValidKeys((prev) => {
                 const isValidLength = prev.length <= word.length;
                 const isNextChar = isValidLength && word[prev.length] === key;
@@ -58,8 +72,6 @@ const App = () => {
             })
         }
 
-        //
-        //console.log('key', key);
     }
 
 
@@ -73,11 +85,9 @@ const App = () => {
             </div>
             <div className="completed-words">
                 <ol>
-                    <li>cidade</li>
-                    <li>cidade</li>
-                    <li>cidade</li>
-                    <li>cidade</li>
-                    <li>cidade</li>
+                    {completedWords.map(word => {
+                        return (<li key={word}>{word}</li>)
+                    })}
                 </ol>
             </div>
 

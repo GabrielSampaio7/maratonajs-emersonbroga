@@ -1,4 +1,22 @@
-# Getting Started with Create React App
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+
+# Typing Game
+
+[![!Typing Game](http://i3.ytimg.com/vi/cRFJZ80jxX4/maxresdefault.jpg)](https://www.youtube.com/watch?v=cRFJZ80jxX4).
+
+Projeto da ***Maratona JS 3***.
+
+O conteúdo desse repositório, faz parte do material didático do curso "Dev Sem Fronteiras", 
+também conhecido como "Curso de React/NodeJS" do [Emerson Brôga Dev](https://emersonbroga.com/instagram).
+
+<p align="left">
+Feito com <img src="https://img.icons8.com/color/48/000000/like--v3.png" width="20" height="20" /> usando <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" width="20" height="20"/>. Esse repositório e o video têm fins educativos.
+</p>
+
+
+##
+
+# Settings for Start Project in React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
