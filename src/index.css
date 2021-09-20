@@ -55,6 +55,12 @@ body{
     font-size: 1.8rem;
     line-height: 2.5rem;
     opacity: 0.5;
+    display: flex;
+}
+
+.container .completed-words ol{
+    flex-grow: 1;
+    align-self: flex-end;
 }
 
 .container .typed-keys{
