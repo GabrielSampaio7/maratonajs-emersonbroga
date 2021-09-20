@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import wordList from "./resources/words.json"
 
 const MAX_TYPED_KEYS = 30;
+const WORD_ANIMATION_INTERVAL = 500;
 
 const getWord = () => {
     const index = Math.floor(Math.random() * wordList.length)
@@ -58,7 +59,7 @@ const App = () => {
                 setWord(newWord);
                 setValidKeys([]);
                 setCompletedWords((prev) => [...prev, word]);
-            }, 1000);
+            }, WORD_ANIMATION_INTERVAL );
         }
 
         return () => {
