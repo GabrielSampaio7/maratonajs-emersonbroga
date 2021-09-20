@@ -22,10 +22,11 @@ const Word = ({ word, validKeys }) => {
     const matched = word.slice(0, joinedKeys.length);
     const remainder = word.slice(joinedKeys.length);
 
+    const matchedClass = (joinedKeys === word) ? 'matched completed' : 'matched';
 
     return (
         <>
-            <span className="matched">{matched}</span>
+            <span className={matchedClass}>{matched}</span>
             <span className="remainder">{remainder}</span>
         </>
     )
@@ -43,17 +44,25 @@ const App = () => {
 
     useEffect(() => {
         const wordFromValidKeys = validKeys.join('').toLowerCase();
+
+        let timeout = null;
+
         if (word && word === wordFromValidKeys) {
 
-            let newWord = null;
-            do {
-                newWord = getWord();
-            } while (completedWords.includes(newWord))
+            timeout = setTimeout(() => {
+                let newWord = null;
+                do {
+                    newWord = getWord();
+                } while (completedWords.includes(newWord))
 
-            setWord(newWord);
-            setValidKeys([]);
-            setCompletedWords((prev) => [...prev, word]);
+                setWord(newWord);
+                setValidKeys([]);
+                setCompletedWords((prev) => [...prev, word]);
+            }, 1000);
+        }
 
+        return () => {
+            if(timeout) clearTimeout(timeout);
         }
     }, [word, validKeys, completedWords])
 
