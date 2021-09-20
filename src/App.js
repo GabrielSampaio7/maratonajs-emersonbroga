@@ -38,9 +38,11 @@ const App = () => {
     const [validKeys, setValidKeys] = useState([]);
     const [completedWords, setCompletedWords] = useState([]);
     const [word, setWord] = useState('');
+    const containerRef = useRef(null);
 
     useEffect(() => {
         setWord(getWord)
+        if(containerRef) containerRef.current.focus();
     }, []);
 
     useEffect(() => {
@@ -86,7 +88,7 @@ const App = () => {
 
 
     return (
-        <div className="container" onKeyDown={handleKeyDown} tabIndex="0">
+        <div className="container" onKeyDown={handleKeyDown} tabIndex="0" ref={containerRef}>
             <div className="valid-keys">
                 <Word word={word} validKeys={validKeys} />
             </div>
